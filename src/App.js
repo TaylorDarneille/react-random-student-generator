@@ -1,7 +1,6 @@
-import './App.css';
-import { useEffect, useState } from 'react';
-
-import Queue from './Queue'
+import './App.css'
+import { useEffect, useState } from 'react'
+import StudentList from './List'
 
 const roster = [
   'Taylor',
@@ -56,7 +55,8 @@ function App() {
 
   return (
     <div className="App">
-      <Queue queue={court.queue} />
+      <StudentList title={'Queue'} students={court.queue} />
+      <StudentList title={'Bench'} students={court.bench} />
       <button onClick={play}>Play</button>
     </div>
   );
