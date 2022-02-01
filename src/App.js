@@ -6,19 +6,21 @@ import StudentList from './List'
 import StudentCard from './Card'
 import ROSTER from './ROSTER'
 
+const durstenfeldShuffle = (q) => {
+  let i = q.length - 1
+  while(i>0) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [q[i], q[j]] = [q[j], q[i]];
+    i--
+  }
+  return q
+}
+
 function App() {
   // const [injured, setInjured] = useState([])
-  const [court, setCourt] = useState({queue: ROSTER, deck: '', hotSeat: '', bench: []})
+  let shuffledRoster = durstenfeldShuffle(ROSTER)
+  const [court, setCourt] = useState({queue: shuffledRoster, deck: '', hotSeat: '', bench: []})
 
-  const durstenfeldShuffle = (q) => {
-    let i = q.length - 1
-    while(i>0) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [q[i], q[j]] = [q[j], q[i]];
-      i--
-    }
-    return q
-  }
 
   const play  = () => {
     // if deck is empty but hotSeat is full, reset court with shuffled queue
