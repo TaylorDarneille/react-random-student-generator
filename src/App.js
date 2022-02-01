@@ -1,6 +1,7 @@
 import './App.css'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import StudentList from './List'
+import StudentCard from './Card'
 
 const roster = [
   'Taylor',
@@ -10,11 +11,7 @@ const roster = [
 ]
 
 function App() {
-  const [injured, setInjured] = useState([])
-  // const [court, setCourt] = useState(roster)
-  // const [deck, setDeck] = useState('')
-  // const [hotSeat, setHotSeat] = useState('')
-  // const [bench, setBench] = useState([])
+  // const [injured, setInjured] = useState([])
   const [court, setCourt] = useState({queue: roster, deck: '', hotSeat: '', bench: []})
 
   const durstenfeldShuffle = (q) => {
@@ -56,6 +53,8 @@ function App() {
   return (
     <div className="App">
       <StudentList title={'Queue'} students={court.queue} />
+      <StudentCard title={'On Deck'} student={court.deck} />
+      <StudentCard title={'Hot Seat'} student={court.hotSeat} />
       <StudentList title={'Bench'} students={court.bench} />
       <button onClick={play}>Play</button>
     </div>
