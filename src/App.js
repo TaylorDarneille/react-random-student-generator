@@ -2,17 +2,18 @@ import './App.css'
 import { useState } from 'react'
 import StudentList from './List'
 import StudentCard from './Card'
+import ROSTER from './ROSTER'
 
-const roster = [
-  'Taylor',
-  'April',
-  'Weston',
-  'Jason'
-]
+// const roster = [
+//   'Taylor',
+//   'April',
+//   'Weston',
+//   'Jason'
+// ]
 
 function App() {
   // const [injured, setInjured] = useState([])
-  const [court, setCourt] = useState({queue: roster, deck: '', hotSeat: '', bench: []})
+  const [court, setCourt] = useState({queue: ROSTER, deck: '', hotSeat: '', bench: []})
 
   const durstenfeldShuffle = (q) => {
     let i = q.length - 1
@@ -27,7 +28,7 @@ function App() {
   const play  = () => {
     // if deck is empty but hotSeat is full, reset court with shuffled queue
     if(!court.deck && court.queue.length===0) {
-      let shuffledQueue = durstenfeldShuffle(roster)
+      let shuffledQueue = durstenfeldShuffle(ROSTER)
       setCourt({queue: shuffledQueue, deck: '', hotSeat: '', bench: []})
       return
     }
