@@ -1,4 +1,6 @@
 import './App.css'
+import Grid from '@mui/material/Grid';
+
 import { useState } from 'react'
 import StudentList from './List'
 import StudentCard from './Card'
@@ -46,11 +48,34 @@ function App() {
 
   return (
     <div className="App">
-      <StudentList title={'Queue'} students={court.queue} />
-      <StudentCard title={'On Deck'} student={court.deck} />
-      <StudentCard title={'Hot Seat'} student={court.hotSeat} />
-      <StudentList title={'Bench'} students={court.bench} />
-      <button onClick={play}>Play</button>
+      <Grid container spacing={2}>
+        <Grid item xs={4}>
+          <StudentList title={'Queue'} students={court.queue} />
+        </Grid>
+
+        <Grid item xs = {4}>
+          <Grid container>
+            <Grid item xs={6}>
+              <StudentCard title={'On Deck'} student={court.deck} />
+            </Grid>
+            <Grid item xs={6}>
+              <StudentCard title={'Hot Seat'} student={court.hotSeat} />
+            </Grid>
+
+            <Grid container>
+              <Grid item xs={12}>
+                <button onClick={play}>Play</button>
+              </Grid>
+            </Grid>
+
+          </Grid>
+        </Grid>
+
+
+        <Grid item xs={4}>
+          <StudentList title={'Bench'} students={court.bench} />
+        </Grid>
+      </Grid>
     </div>
   );
 }
