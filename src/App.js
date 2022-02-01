@@ -4,13 +4,6 @@ import StudentList from './List'
 import StudentCard from './Card'
 import ROSTER from './ROSTER'
 
-// const roster = [
-//   'Taylor',
-//   'April',
-//   'Weston',
-//   'Jason'
-// ]
-
 function App() {
   // const [injured, setInjured] = useState([])
   const [court, setCourt] = useState({queue: ROSTER, deck: '', hotSeat: '', bench: []})
