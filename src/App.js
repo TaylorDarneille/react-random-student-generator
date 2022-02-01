@@ -1,6 +1,8 @@
 import './App.css';
 import { useEffect, useState } from 'react';
 
+import Queue from './Queue'
+
 const roster = [
   'Taylor',
   'April',
@@ -54,6 +56,7 @@ function App() {
 
   return (
     <div className="App">
+      <Queue queue={court.queue} />
       <button onClick={play}>Play</button>
     </div>
   );
